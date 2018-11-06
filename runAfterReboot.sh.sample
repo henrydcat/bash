@@ -3,8 +3,12 @@ cronfile=/etc/cron.d/afterReboot
 myScript=/root/install_after_reboot.sh
 
 #if file exist then delete it
-if [ ! -f $cronfile ]; then 
+if [ ! -f $cronfile ]; then
+  #this is where you would do everything prior to reboot
   echo blah blah blah
+  # put everything you want to do AFTER reboot in $myScript
+  #e.g. (*** add sample code when I have a chance **)
+  # Once you are done, create a cronfile that will trigger the reboot 
   echo creating $cronfile
   echo "@reboot root [ -f $myScrip ] && $myScript"  >$cronfile
   reboot
